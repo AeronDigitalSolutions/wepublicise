@@ -1,18 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const editorial = Playfair_Display({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-editorial",
-});
 
 export const metadata: Metadata = {
   title: "WePublicise | Build Market Leaders",
@@ -26,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en" className={`${inter.variable} ${editorial.variable}`}>
+    <html suppressHydrationWarning lang="en">
       <body suppressHydrationWarning className="bg-bg text-text">
         {children}
       </body>

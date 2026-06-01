@@ -1,3 +1,5 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -38,11 +40,12 @@ body {
   background: #050505;
   color: #ffffff;
   overflow-x: clip;
-  font-family: var(--font-inter), Inter, sans-serif;
+  font-family: 'Satoshi', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 ::selection {
   background: rgba(183, 168, 255, 0.35);
@@ -85,7 +88,7 @@ body {
 
 /* Luxury Editorial Headings */
 .headline-display {
-  font-family: var(--font-editorial), "Playfair Display", Georgia, serif;
+  font-family: 'Satoshi', sans-serif;
   letter-spacing: -0.02em;
   font-weight: 300;
   text-transform: uppercase;

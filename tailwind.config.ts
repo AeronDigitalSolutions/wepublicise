@@ -18,8 +18,9 @@ const config: Config = {
         lavender: "#B7A8FF",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "sans-serif"],
-        editorial: ["var(--font-editorial)", "Playfair Display", "Georgia", "serif"],
+        sans: ["Satoshi", "sans-serif"],
+        editorial: ["Satoshi", "sans-serif"],
+        serif: ["Satoshi", "sans-serif"],
       },
       backgroundImage: {
         "accent-gradient": "linear-gradient(120deg, #3D1A78 0%, #B7A8FF 55%, #E8E8EE 100%)",
