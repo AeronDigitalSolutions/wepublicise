@@ -17,16 +17,17 @@ export function Hero({ done = false }: { done?: boolean }) {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const letters = titleRef.current?.querySelectorAll(".letter-span");
+      const lines = titleRef.current?.querySelectorAll(".line-span");
       
       // Initialize states to completely prevent FOUC (flash of unstyled content)
-      if (letters && letters.length > 0) {
-        gsap.set(letters, { y: "115%", opacity: 0, rotateX: -30 });
+      if (lines && lines.length > 0) {
+        gsap.set(lines, { y: "115%" });
       }
       if (elementsRef.current) {
         gsap.set(elementsRef.current.children, { opacity: 0, y: 30 });
       }
 
-      // Scroll Scatter & Scatter-Out Effect
+      // Scroll Scatter & Scatter-Out Effect (targets letter-spans separately to prevent GSAP collisions)
       if (letters && letters.length > 0 && containerRef.current) {
         gsap.to(letters, {
           y: (i) => -60 - (i % 5) * 20,
@@ -57,19 +58,17 @@ export function Hero({ done = false }: { done?: boolean }) {
     return () => ctx.revert();
   }, []);
 
-  // 2. Play entrance timeline when preloader finishes exit transition
+  // 2. Play entrance timeline when preloader finishes exit transition (targets line-spans)
   useEffect(() => {
     if (!done) return;
 
     const ctx = gsap.context(() => {
-      const letters = titleRef.current?.querySelectorAll(".letter-span");
-      if (letters && letters.length > 0) {
-        gsap.to(letters, {
+      const lines = titleRef.current?.querySelectorAll(".line-span");
+      if (lines && lines.length > 0) {
+        gsap.to(lines, {
           y: "0%",
-          opacity: 1,
-          rotateX: 0,
           duration: 1.1,
-          stagger: 0.015,
+          stagger: 0.12,
           ease: "power4.out",
         });
       }
@@ -124,13 +123,13 @@ export function Hero({ done = false }: { done?: boolean }) {
             ref={titleRef}
             className="headline-display text-[9vw] leading-[0.9] md:text-[5.5rem] tracking-tight font-extralight text-white perspective-800"
           >
-            <span className="block overflow-hidden pb-2">
+            <span className="block overflow-hidden pb-2 line-span">
               {splitText("WE DON'T")}
             </span>
-            <span className="block overflow-hidden pb-2">
+            <span className="block overflow-hidden pb-2 line-span">
               {splitText("MARKET BRANDS.")}
             </span>
-            <span className="block overflow-hidden pb-2 gradient-text-lavender">
+            <span className="block overflow-hidden pb-2 gradient-text-lavender line-span">
               {splitText("WE BUILD MARKET LEADERS.")}
             </span>
           </h1>
