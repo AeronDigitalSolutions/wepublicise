@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  border: 1px solid #050505;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(183, 168, 255, 0.45);
+}
+
+html,
+body {
+  background: #050505;
+  color: #ffffff;
+  overflow-x: clip;
+  font-family: var(--font-inter), Inter, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(183, 168, 255, 0.35);
+  color: #ffffff;
+}
+
+.section-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Premium Noise & Grid Textures */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.28) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  z-index: 1;
+}
+
+/* Luxury Glassmorphic Panel styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(120%);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(183, 168, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Luxury Editorial Headings */
+.headline-display {
+  font-family: var(--font-editorial), "Playfair Display", Georgia, serif;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* Gradient text accentuation */
+.gradient-text-lavender {
+  background: linear-gradient(135deg, #ffffff 30%, #b7a8ff 70%, #3d1a78 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(90deg, #3d1a78 0%, #b7a8ff 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Draggable Slider Overlap Helper */
+.slider-clip-path {
+  clip-path: polygon(0 0, var(--clip-pos) 0, var(--clip-pos) 100%, 0 100%);
+}
+
+/* Reduced Motion Preferences override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee,
+  .animate-beam {
+    animation: none !important;
+  }
+}
