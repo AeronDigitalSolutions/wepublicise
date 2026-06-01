@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
+import { Rubik } from "next/font/google";
 import "./globals.css";
+
+const rubik = Rubik({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-rubik",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
   title: "WePublicise | Build Market Leaders",
@@ -13,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="en" className={rubik.variable}>
       <body suppressHydrationWarning className="bg-bg text-text">
         {children}
       </body>
