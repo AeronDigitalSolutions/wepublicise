@@ -18,9 +18,9 @@ const config: Config = {
         lavender: "#B7A8FF",
       },
       fontFamily: {
-        sans: ["var(--font-rubik)", "sans-serif"],
-        editorial: ["var(--font-rubik)", "sans-serif"],
-        serif: ["var(--font-rubik)", "sans-serif"],
+        sans: ["Rubik", "sans-serif"],
+        editorial: ["Rubik", "sans-serif"],
+        serif: ["Rubik", "sans-serif"],
       },
       backgroundImage: {
         "accent-gradient": "linear-gradient(120deg, #3D1A78 0%, #B7A8FF 55%, #E8E8EE 100%)",
